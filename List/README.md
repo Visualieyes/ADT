@@ -1,14 +1,16 @@
 Project 1: List ADT
+
 Follow the project instructions below carefully, and submit your code as described here:
 
 Hand-in 1 C source files:
 
 intlist.c
-Your solution will be tested by another program, so please ensure you:
 
+
+Your solution will be tested by another program, so please ensure you:
 upload each C source files separately (don't zip and submit your project folder)
 name each C source file correctly - exactly as above, all lower-case
-When your submission is ready, be sure you press the "Submit Assignment" button and agree to the Submission Statement.
+
 
 Grading Criteria:
 
@@ -152,6 +154,7 @@ implementation details.
 
 
 Hints, Tips, and Strategies for completing the project
+
 It is likely that your experience up to now has been to write complete programs from start
 to finish – thinking of the main() function as the starting point for your efforts. In this
 project, I am showing you that real programming doesn't actually work that way – here
@@ -159,55 +162,68 @@ I've given you 3 different main programs that each do different things, all usin
 library module – and you have to implement that underlying module! You may have
 never thought about programming from this angle before, and it can be a significant
 challenge, so here is some advice on how to proceed:
+ 
  • Start by READING the code provided.
-Ask questions about anything in that code you don't understand. In particular, be sure
-you understand the meaning of every symbol and every word in the IntList
-specification (intlist.h). If not, ask!
-Read the sample application code (ilist-test-app.c) to gain an understanding of how a
-program might use the module you are about to write.
+   Ask questions about anything in that code you don't understand. In particular, be sure
+   you understand the meaning of every symbol and every word in the IntList
+   specification (intlist.h). If not, ask!
+   Read the sample application code (ilist-test-app.c) to gain an understanding of how a
+   program might use the module you are about to write.
+   
  • Draw some memory block diagrams of the program in progress.
-Use the techniques we've seen in class to imagine how the IntList data structure
-will change over time as the application program executes.
-Record the values for each of the IntList struct's fields as you trace the program.
+   Use the techniques we've seen in class to imagine how the IntList data structure
+   will change over time as the application program executes.
+   Record the values for each of the IntList struct's fields as you trace the program.
+ 
  • Write, test, and debug one function at a time.
-Start with the Constructor – this should be an easy function to write since it simply
-initializes an IntList struct to represent an empty list, and returns it.
-Uncomment the part of the test driver (ilist-test-basic.c) that calls the constructor and
-run that test, debug until it works before moving on.
-The tests in this driver are sequenced more-or-less in the order I did my
-implementation. You don't have to develop in the same sequence – choose a
-sequence that makes sense to you, but only work on one function at a time. I strongly
-recommend you write the Print operation early – very useful for debugging!
+   Start with the Constructor – this should be an easy function to write since it simply
+   initializes an IntList struct to represent an empty list, and returns it.
+   Uncomment the part of the test driver (ilist-test-basic.c) that calls the constructor and
+   run that test, debug until it works before moving on.
+   
+   The tests in this driver are sequenced more-or-less in the order I did my
+   implementation. You don't have to develop in the same sequence – choose a
+   sequence that makes sense to you, but only work on one function at a time. I strongly
+   recommend you write the Print operation early – very useful for debugging!
+   
  • Develop some private helper functions.
-One of the challenges in this assignment is managing the List memory so the list can
-grow as needed. As mentioned above, the technique we are implementing is called
-"resizeable array". I found it useful to implement a couple helper functions to keep
-the resizeable array logic separate from my main List handling logic:
-o // expand list capacity.
-void ilistGrow( IntList *list );
-o // shift list elements, from index onward, 1 place to right,
-// "creating" an "empty" slot at pos. index.
-void ilistShiftRight( IntList *list, int index );
-o // shift list elements following index 1 place to left,
-// "overwriting" the item at pos. index, shortening list by 1
-void ilistShiftLeft( IntList *list, int index );
-Capilano University Comp220 ASSIGNMENT 1 J. Fall
-• Check the list capacity before adding new elements!
-One of the key services / abstractions your List ADT provides is it frees the client
-from having to worry about array constraints. That's because YOU have done all the
-worrying for them! Before adding a new item to the list, always check that there is
-still capacity, and if not, grow the list's capacity before adding the item.
-• Define a "block size" for expanding capacity.
-Expanding the list capacity will be an "expensive" operation (from a program
-efficiency perspective), so we don't want to do this for every element. Instead, define
-a constant for the "block size" (10 would be a reasonable value to use during
-development) and expand the list capacity by blocks of memory this size, as needed.
-Note: you never need to "shrink" the list capacity!
-• Don't create any memory leaks or leave any dangling pointers!
+   One of the challenges in this assignment is managing the List memory so the list can
+   grow as needed. As mentioned above, the technique we are implementing is called
+   "resizeable array". I found it useful to implement a couple helper functions to keep
+   the resizeable array logic separate from my main List handling logic:
+   
+   o // expand list capacity. 
+     void ilistGrow( IntList *list );
+     
+   o // shift list elements, from index onward, 1 place to right,
+     // "creating" an "empty" slot at pos. index.
+     void ilistShiftRight( IntList *list, int index );
+
+   o // shift list elements following index 1 place to left,
+     // "overwriting" the item at pos. index, shortening list by 1
+     void ilistShiftLeft( IntList *list, int index );
+
+
+ • Check the list capacity before adding new elements!
+   One of the key services / abstractions your List ADT provides is it frees the client
+   from having to worry about array constraints. That's because YOU have done all the
+   worrying for them! Before adding a new item to the list, always check that there is
+   still capacity, and if not, grow the list's capacity before adding the item.
+   
+ • Define a "block size" for expanding capacity.
+   Expanding the list capacity will be an "expensive" operation (from a program
+   efficiency perspective), so we don't want to do this for every element. Instead, define
+   a constant for the "block size" (10 would be a reasonable value to use during
+   development) and expand the list capacity by blocks of memory this size, as needed.
+   Note: you never need to "shrink" the list capacity!
+ 
+ • Don't create any memory leaks or leave any dangling pointers!
+
 We will learn more about dynamic memory management over the term, but the golden
 rules of all dynamic memory management are:
-1. Always free() memory when you are done with it!
-2. Always set dangling pointers9 to NULL!
+ 1. Always free() memory when you are done with it!
+ 2. Always set dangling pointers9 to NULL!
+ 
 • KISS – Keep It Simple Students!
 Students have a tendency to over-think and over-complicate things. The longest
 algorithm in my solution is 5 or 6 lines of code. You may not want to write your code
