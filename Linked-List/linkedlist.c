@@ -1,5 +1,5 @@
 /*
- *  Hash LinkedList : Linked List
+ *  Linked-List
  *
  *  Author:  Keyann Al-Kheder
  *  
@@ -21,10 +21,8 @@
  * Constructor - return a node 
  * POST:  Node: [Value][NULL-]
  */
-Node_t* nodeCreate(char* key, int value) {
+Node_t* nodeCreate(int value) {
   Node_t* node = malloc(sizeof(Node_t));
-  node->hash_key = malloc(sizeof(strlen(key) + 1));
-  strcpy(node->hash_key, key);
   node->data = value;
   node->next = NULL;
   return node;
@@ -45,7 +43,7 @@ linkedList llCreate(){
  * Output a text representation of a node
  */
 void printNode(Node_t*node){
-	printf("[%c][%d]%s", node->hash_key, node->data, node->next ? "-->" : "--|"); //taken from your code in class
+	printf("[%d]%s", node->data, node->next ? "-->" : "--|"); //taken from your code in class
 }
 
 /*
