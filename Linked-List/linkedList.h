@@ -4,9 +4,8 @@
 /*******************
  * PRIVATE TYPE DECLARATION
  ********************/
-struct  Node {
-	char* hash_key;					//Hash Key	
-    int value;					//Hash Value
+struct  Node {						
+    int data;				 //Data
     struct Node* next;			//pointer to the next node	
 };									
 typedef struct Node Node_t;	
