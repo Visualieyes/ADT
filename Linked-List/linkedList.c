@@ -105,3 +105,9 @@ void llDelete(linkedList* list){
 	}
 	list->tail = NULL;
 }
+
+
+int main(){
+	return 0;
+}
+
