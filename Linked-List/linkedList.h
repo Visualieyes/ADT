@@ -5,8 +5,8 @@
  * PRIVATE TYPE DECLARATION
  ********************/
 struct  Node {						
-    int data;				 //Data
-    struct Node* next;			//pointer to the next node	
+    int data;				 	//Data
+    struct Node* next;				//pointer to the next node	
 };									
 typedef struct Node Node_t;	
 
@@ -16,7 +16,7 @@ typedef struct Node Node_t;
  ********************/
 struct list_s{
 	Node_t* head;				//pointer to the head node
-	Node_t*tail;				//pointer to the tail node
+	Node_t* tail;				//pointer to the tail node
 };
 typedef struct list_s linkedList;
 
@@ -35,10 +35,12 @@ Node_t* nodeCreate(int value);
  */
 linkedList llCreate();
 
+
 /*
  * Output a text representation of a node
  */
 void printNode(Node_t*node);
+
 
 /*
  * Output a text representation of the list
@@ -51,12 +53,12 @@ void printList(linkedList list);
  */
 bool isEmpty(const linkedList list);
 
+
 /*
  * Append the given item to the list 
  * POST: Linked List list grows by 1 node, which the tail now points too.
  */
 void llAppend(linkedList* list, int data);
-
 
 
 /*
