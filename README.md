@@ -2,13 +2,16 @@
 
 
 
-Cleaner storage method than individual repositories for each ADT
+This is a cleaner storage method than making individual repositories to store each ADT
 
-Repository for all ADT's built:
+
+These are ADTs I built and coded for my data structures & algorithms class
+
+Abstract Data Types (ADTs):
 
 - List: dynamic, resizable array
-- Integer Vector:
-- Linked-List: singly linked-list with a dummy-head node
-- Stack: Coming Soon!
+- Integer Vector: list implementation
+- Linked-List: singly linked-list with a dummy-head node, and without dummy node
+- Stack: linked-list implemntation
 - Binary Search Tree: Stack implementation
 
