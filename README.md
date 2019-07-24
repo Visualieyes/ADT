@@ -2,9 +2,6 @@
 
 
 
-This is a cleaner storage method than making individual repositories to store each ADT
-
-
 These are ADTs I built and coded for my data structures & algorithms class
 
 Abstract Data Types (ADTs):
